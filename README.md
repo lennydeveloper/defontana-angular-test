@@ -2,6 +2,10 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.1.1.
 
+## Deploy version
+
+You can see the deployment version at the following link: `https://pokedex-angular-test.netlify.app/pokemon`
+
 ## Installation
 
 ```sh
