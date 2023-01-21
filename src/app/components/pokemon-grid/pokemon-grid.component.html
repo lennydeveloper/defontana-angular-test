@@ -1,0 +1,27 @@
+<div class="block" style="background-color: white;">
+  <div class="w-full pokemon-container">
+    <section class="local-grid py-8 px-4">
+      <div class="card" *ngFor="let item of pokemonDataFiltered.slice(start, size); index as idx"
+        (click)="showPokemonDetail(item)">
+        <img class="rounded-lg" style="background-color: #ebecf0;" src="{{ item.image }}" alt="{{ item.name }}">
+        <div class="info -mt-4">
+          <span class="text-sm font-archivo text-gray-400">#{{ item.id }}</span>
+          <p class="antialised text-xl font-semibold tracking-normal">{{ item.name[0].toUpperCase() + item.name.slice(1)
+            }}</p>
+          <div class="flex">
+            <div *ngFor="let type of item.types" class="mr-2">
+              <span
+                class="font-archivo rounded-full focus:outline-none focus:ring-0 px-3 py-1 text-xs font-normal tracking-normal {{ type }}">{{
+                type.slice(0,1).toUpperCase() + type.slice(1) }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <mat-paginator #paginator (page)="handlePageEvent($event)" [length]="pokemonData.length" [pageSize]="size"
+      [disabled]="disabled" [showFirstLastButtons]="true" [pageSizeOptions]="pageSizeOptions ? pageSizeOptions : []"
+      [hidePageSize]="false" [pageIndex]="pageIndex" aria-label="Select page">
+    </mat-paginator>
+  </div>
+</div>
