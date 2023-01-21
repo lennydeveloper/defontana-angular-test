@@ -6,6 +6,20 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 You can see the deployment version at the following link: `https://pokedex-angular-test.netlify.app/pokemon`
 
+## Preview
+
+### Home Page
+
+![home-page](https://user-images.githubusercontent.com/90154644/213878882-f3539561-efc7-41e2-bc1d-57bd6b58e7f9.png)
+
+### Pokémon Detail
+
+![pokemon-detail](https://user-images.githubusercontent.com/90154644/213878831-705acd60-8db5-46c5-9aa5-f2994b411adc.png)
+
+### Resume - Number of pokemons for each letter
+
+![pokemon-resume](https://user-images.githubusercontent.com/90154644/213878960-ef6dadad-f052-4d6e-8d6a-70f5faba7665.png)
+
 ## Installation
 
 ```sh
