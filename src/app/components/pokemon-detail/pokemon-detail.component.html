@@ -1,0 +1,107 @@
+<div class="container w-full lg:w-2/3 xl:w-2/3 mx-auto h-auto bg-gray-200 space-y-8 pt-36 pb-8">
+  <div class="w-10/12 xl:!w-2/3 h-auto mx-auto rounded-xl" style="background-color: #fefdfe;">
+    <div class="flex flex-col mx-auto align-middle pb-10 h-auto rounded-xl">
+      <img style="width: 250px; height: 250px;" class="mx-auto -mt-36"
+        src="{{ pokemon.url }}" alt="{{ pokemon.name }}">
+      <span class="antialised text-4xl font-semibold tracking-normal text-gray-700 mx-auto">{{ pokemon.name ? pokemon.name[0].toUpperCase() + pokemon.name.slice(1) : '' }}</span>
+      <div class="flex w-auto mx-auto">
+        <div *ngFor="let type of pokemon.types" class="mr-2">
+          <span
+            class="font-archivo rounded-full focus:outline-none focus:ring-0 px-3 py-1 text-xs font-normal tracking-normal {{ type }}">{{
+            type.slice(0,1).toUpperCase() + type.slice(1) }}</span>
+        </div>
+      </div>
+      <!-- TODO: Armar los iconos svg para mostrar los elementos-->
+      <div class="flex flex-row justify-center mt-4">
+        <div class="flex flex-col px-6 md:px-16 py-2" style="border-right: 1px solid #dedede;">
+          <p class="antialised font-normal tracking-tight">{{ pokemon.category }}</p>
+          <p class="uppercase text-xs font-semibold text-gray-500">classification</p>
+        </div>
+
+        <div class="flex flex-col px-6 md:px-16 py-2" style="border-right: 1px solid #dedede;">
+          <p class="antialised font-normal tracking-tight">{{ pokemon.weight }} lb</p>
+          <p class="uppercase text-xs font-semibold text-gray-500">weight</p>
+        </div>
+
+        <div class="flex flex-col px-6 md:px-16 py-2">
+          <p class="antialised font-normal tracking-tight">{{ pokemon.height }} m</p>
+          <p class="uppercase text-xs font-semibold text-gray-500">height</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="pokemon.evolutions && pokemon.evolutions.length > 0" class="w-10/12 xl:!w-2/3 h-auto mx-auto rounded-xl p-8" style="background-color: #fefdfe;">
+    <h3 class="flex items-center pb-2" style="border-bottom: 1px solid #dedede;">
+      <img class="h-6 w-6" style="color: black;" src="../../../assets/icons/pokedex-icon-black.png" alt="">
+      <div class="ml-3">
+        <p class="font-normal tracking-tight text-lg">Evolutions</p>
+      </div>
+    </h3>
+
+    <div class="flex flex-col justify-center items-center mt-4 md:!hidden">
+      <ng-container *ngIf="pokemon?.evolutions !== null && pokemon?.evolutions !== undefined" class="md:hidden">
+        <ng-container *ngFor="let item of pokemon?.evolutions; index as idx">
+          <div class="p-3"
+            style="background-color: transparent; border: 2px solid #dedede; border-radius: 9999px; width: 162px; height: 162px;">
+            <img class="" style="width: 150px; height: 150px;"
+              src="{{ item.url }}" alt="{{ item.name }}">
+          </div>
+
+          <div class="flex h-auto w-12 items-center my-2" *ngIf="idx + 1 != pokemon.evolutions?.length">
+            <mat-icon class="text-black" style="transform: scale(2);">expand_more</mat-icon>
+          </div>
+        </ng-container>
+      </ng-container>
+    </div>
+
+    <div class="hidden md:flex md:flex-row justify-center align-center mt-4">
+      <ng-container *ngIf="pokemon?.evolutions !== null && pokemon?.evolutions !== undefined">
+        <ng-container *ngFor="let item of pokemon?.evolutions; index as idx">
+          <div class="w-auto h-auto p-3 mr-8"
+            style="background-color: transparent; border: 2px solid #dedede; border-radius: 9999px;">
+            <img class="" style="width: 110px; height: 110px;"
+              src="{{ item.url }}" alt="{{ item.name }}">
+          </div>
+
+          <div class="flex h-auto w-12 items-center" *ngIf="idx + 1 != pokemon.evolutions?.length">
+            <mat-icon class="text-black" style="transform: scale(2);">chevron_right</mat-icon>
+          </div>
+        </ng-container>
+      </ng-container>
+    </div>
+  </div>
+
+  <div *ngIf="pokemon.abilities && pokemon.abilities.length > 0" class="w-10/12 xl:!w-2/3 h-auto mx-auto rounded-xl p-8" style="background-color: #fefdfe;">
+    <h3 class="flex items-center pb-2" style="border-bottom: 1px solid #dedede;">
+      <img class="h-6 w-6" style="color: black;" src="../../../assets/icons/pokedex-icon-black.png" alt="">
+      <div class="ml-3">
+        <p class="font-normal tracking-tight text-lg">Abilities</p>
+      </div>
+    </h3>
+
+    <div class="flex flex-col mt-2">
+      <p *ngFor="let item of pokemon.abilities" class="uppercase text-sm font-semibold text-gray-700 mt-2">{{ item }}</p>
+    </div>
+  </div>
+
+  <div class="w-10/12 xl:!w-2/3 h-auto mx-auto rounded-xl p-8" style="background-color: #fefdfe;">
+    <h3 class="flex items-center pb-2" style="border-bottom: 1px solid #dedede;">
+      <img class="h-6 w-6" style="color: black;" src="../../../assets/icons/pokedex-icon-black.png" alt="">
+      <div class="ml-3">
+        <p class="font-normal tracking-tight text-lg">Base Stats</p>
+      </div>
+    </h3>
+
+    <div class="flex flex-col mt-3">
+      <ng-container *ngFor="let item of pokemon.stats" [ngSwitch]="item.name">
+        <p *ngSwitchCase="'hp'" class="font-normal tracking-tight text-md"><strong>HP : </strong>{{ item.value }}</p>
+        <p *ngSwitchCase="'attack'" class="font-normal tracking-tight text-md"><strong>Attack : </strong>{{ item.value }}</p>
+        <p *ngSwitchCase="'defense'" class="font-normal tracking-tight text-md"><strong>Defense : </strong>{{ item.value }}</p>
+        <p *ngSwitchCase="'special-attack'" class="font-normal tracking-tight text-md"><strong>Sp. Atk : </strong>{{ item.value }}</p>
+        <p *ngSwitchCase="'special-defense'" class="font-normal tracking-tight text-md"><strong>Sp. Def : </strong>{{ item.value }}</p>
+        <p *ngSwitchDefault><strong>Speed : </strong>{{ item.value }}</p>
+      </ng-container>
+    </div>
+  </div>
+</div>
