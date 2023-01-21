@@ -26,6 +26,8 @@ export class PokemonGridComponent implements OnInit, OnDestroy {
   pageIndex: number = 0
   pageSizeOptions = [10, 25, 100];
   mobileQuery: MediaQueryList;
+  show: boolean = false;
+  letters: any[] = []
   private _mobileQueryListener: () => void;
 
   constructor(
@@ -68,6 +70,7 @@ export class PokemonGridComponent implements OnInit, OnDestroy {
           return item
         })
         this.pokemonDataFiltered = this.pokemonData
+        this.letters = this.fillLettersArray();
       },
       error: (err) => {
         console.error(err)
@@ -113,5 +116,20 @@ export class PokemonGridComponent implements OnInit, OnDestroy {
     }
 
     return '0'.concat(index)
+  }
+
+  showResume(): void {
+    this.show = !this.show;
+  }
+
+  fillLettersArray() {
+    const alpha = Array.from(Array(26)).map((e, i) => i + 65);
+    const alphabet = alpha.map((x) => {
+      const value = String.fromCharCode(x);
+
+      return { letter: value, count: this.pokemonData.filter((item) => item.name.charAt(0).toUpperCase() === value).length }
+    });
+    console.log(alphabet)
+    return alphabet;
   }
 }
