@@ -1,1 +1,181 @@
 /* You can add global styles to this file, and also import other style files */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+body::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+body {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+  background: url(https://assets.pokemon.com/static2/_ui/img/chrome/container_bg.png);
+}
+
+.pokemon-container {
+  background: url(https://assets.pokemon.com/static2/_ui/img/chrome/container_bg.png);
+}
+
+.mat-mdc-paginator {
+  background: transparent
+}
+
+.mat-toolbar.mat-primary {
+  background: #fe4c42;
+  color: #fff;
+}
+
+$bug: #729f3f;
+$fairy: #fdb9e9;
+$fire: #fd7d24;
+$ghost: #7b62a3;
+$normal: #a4acaf;
+$psychic: #f366b9;
+$steel: #9eb7b8;
+$dark: #707070;
+$electric: #eed535;
+$fighting: #d56723;
+$grass: #9bcc50;
+$ice: #51c4e7;
+$poison: #b97fc9;
+$rock: #a38c21;
+$water: #4592c4;
+$smokeWhite: #f9f9fa;
+$detailBg: #f0f2f5;
+
+.detail-bg {
+  background-color: $detailBg;
+}
+
+.smoke-bg {
+  background-color: $smokeWhite;
+}
+
+.outline-font {
+  color: black;
+  -webkit-text-fill-color: transparent !important; /* Will override color (regardless of order) */
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: white;
+  font-size: 9rem/* 128px */;
+  line-height: 1;
+}
+
+.bug {
+  background-color: $bug;
+  color: white;
+}
+
+.dragon {
+  background: -webkit-linear-gradient(180deg, #53a4cf 50%, #f16e57 50%);
+  background: -ms-linear-gradient(180deg, #53a4cf 50%, #f16e57 50%);
+  background: -moz-linear-gradient(180deg, #53a4cf 50%, #f16e57 50%);
+  background: -o-linear-gradient(180deg, #53a4cf 50%, #f16e57 50%);
+  background: linear-gradient(180deg, #53a4cf 50%, #f16e57 50%);
+  background-color: #53a4cf;
+  color: #fff;
+}
+
+.fairy {
+  background-color: $fairy;
+  color: black;
+}
+
+.fire {
+  background-color: $fire;
+  color: white;
+}
+
+.ghost {
+  background-color: $ghost;
+  color: white;
+}
+
+.ground {
+  background: -webkit-linear-gradient(180deg, #f7de3f 50%, #ab9842 50%);
+  background: -ms-linear-gradient(180deg, #f7de3f 50%, #ab9842 50%);
+  background: -moz-linear-gradient(180deg, #f7de3f 50%, #ab9842 50%);
+  background: -o-linear-gradient(180deg, #f7de3f 50%, #ab9842 50%);
+  background: linear-gradient(180deg, #f7de3f 50%, #ab9842 50%);
+  background-color: #f7de3f;
+  color: #212121;
+}
+
+.normal {
+  background-color: $normal;
+  color: black;
+}
+
+.psychic {
+  background-color: $psychic;
+  color: white;
+}
+
+.steel {
+  background-color: $steel;
+  color: black;
+}
+
+.dark {
+  background-color: $dark;
+  color: white;
+}
+
+.electric {
+  background-color: $electric;
+  color: black;
+}
+
+.fighting {
+  background-color: $fighting;
+  color: white;
+}
+
+.flying {
+  background: -webkit-linear-gradient(180deg, #3dc7ef 50%, #bdb9b8 50%);
+  background: -ms-linear-gradient(180deg, #3dc7ef 50%, #bdb9b8 50%);
+  background: -moz-linear-gradient(180deg, #3dc7ef 50%, #bdb9b8 50%);
+  background: -o-linear-gradient(180deg, #3dc7ef 50%, #bdb9b8 50%);
+  background: linear-gradient(180deg, #3dc7ef 50%, #bdb9b8 50%);
+  background-color: #3dc7ef;
+  color: #212121;
+}
+
+.grass {
+  background-color: $grass;
+  color: black;
+}
+
+.ice {
+  background-color: $ice;
+  color: black;
+}
+
+.poison {
+  background-color: $poison;
+  color: white;
+}
+
+.rock {
+  background-color: $rock;
+  color: white;
+}
+
+.water {
+  background-color: $water;
+  color: white;
+}
+
+.font-archivo {
+  font-family: 'Archivo', sans-serif;
+}
+
+.font-jakarta {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
